@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XGames.Domain", "XGames.Dom
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XGame.AppConsole", "XGame.AppConsole\XGame.AppConsole.csproj", "{75BAD063-94FF-4D75-9FC9-673F5ABD9777}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XGame.Infra", "XGame.Infra\XGame.Infra.csproj", "{26522038-BD85-40F2-84C8-1BC6B0E57E34}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{75BAD063-94FF-4D75-9FC9-673F5ABD9777}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{75BAD063-94FF-4D75-9FC9-673F5ABD9777}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{75BAD063-94FF-4D75-9FC9-673F5ABD9777}.Release|Any CPU.Build.0 = Release|Any CPU
+		{26522038-BD85-40F2-84C8-1BC6B0E57E34}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{26522038-BD85-40F2-84C8-1BC6B0E57E34}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{26522038-BD85-40F2-84C8-1BC6B0E57E34}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{26522038-BD85-40F2-84C8-1BC6B0E57E34}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

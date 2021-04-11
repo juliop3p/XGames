@@ -14,7 +14,13 @@ namespace XGame.AppConsole
             var service = new ServiceJogador();
             Console.WriteLine("Criei instância do servico...");
 
-            var request = new AdicionarJogadorRequest() 
+            //var request = new AutenticarJogadorRequest();
+            //request.Email = "julio@gmail.com";
+            //request.Senha = "123456";
+
+            //var response = service.AutenticarJogador(request);
+
+            var AdicionarRequest = new AdicionarJogadorRequest() 
             { 
                 PrimeiroNome = "Julio",
                 UltimoNome = "Cesar",
@@ -25,7 +31,7 @@ namespace XGame.AppConsole
             Console.WriteLine("Criei instância do meu objeto request");
 
 
-            var response = service.AdicionarJogador(request);
+            var responseAdd = service.AdicionarJogador(AdicionarRequest);
 
             Console.WriteLine("Serviço é valido -> " + service.IsValid());
 
