@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using XGames.Domain.Arguments.Jogador;
 using XGames.Domain.Services;
 
@@ -17,13 +14,18 @@ namespace XGame.AppConsole
             var service = new ServiceJogador();
             Console.WriteLine("Criei instância do servico...");
 
-            AutenticarJogadorRequest request = new AutenticarJogadorRequest();
+            var request = new AdicionarJogadorRequest() 
+            { 
+                PrimeiroNome = "Julio",
+                UltimoNome = "Cesar",
+                Email = "julio@gmail.com",
+                Senha = "123456",
+
+            };
             Console.WriteLine("Criei instância do meu objeto request");
 
-            request.Email = "julio@gmail.com";
-            request.Senha = "123456";
 
-            var response = service.AutenticarJogador(request);
+            var response = service.AdicionarJogador(request);
 
             Console.WriteLine("Serviço é valido -> " + service.IsValid());
 
