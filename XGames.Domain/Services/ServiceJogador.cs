@@ -3,6 +3,7 @@ using prmToolkit.NotificationPattern.Extensions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using XGames.Domain.Arguments.Base;
 using XGames.Domain.Arguments.Jogador;
 using XGames.Domain.Entities;
 using XGames.Domain.Interfaces.Repositories;
@@ -36,7 +37,8 @@ namespace XGames.Domain.Services
             {
                 return null;
             }
-            //var response = _repositoryJogador.AdicionarJogador(jogador);
+
+            jogador = _repositoryJogador.Adicionar(jogador);
 
             return (AdicionarJogadorResponse)jogador;
         }
@@ -68,8 +70,8 @@ namespace XGames.Domain.Services
                 return null;
             }
 
-            _repositoryJogador.AlterarJogador(jogador.Email.Endereco, jogador.Senha);
-            
+            _repositoryJogador.Editar(jogador);
+
             return (AlterarJogadorResponse)jogador;
         }
 
@@ -90,14 +92,31 @@ namespace XGames.Domain.Services
                 return null;
             }
 
-            //jogador = _repositoryJogador.AutenticarJogador(jogador.Email.Endereco, jogador.Senha);
+            jogador = _repositoryJogador.ObterPor(x => x.Email.Endereco == jogador.Email.Endereco, x => x.Senha == jogador.Senha);
 
             return (AutenticarJogadorResponse)jogador;
         }
 
+        public ResponseBase ExcluirJogador(Guid id)
+        {
+            Jogador jogador = _repositoryJogador.ObterPorId(id);
+
+            if(jogador == null)
+            {
+                AddNotification("Id", "Jogador não encontrado");
+                return null;
+            }
+
+            _repositoryJogador.Remover(jogador);
+
+            return new ResponseBase() { Message = "Operação realizada com sucesso!" };
+
+        }
+
         public IEnumerable<JogadorResponse> ListarJogador()
         {
-            return _repositoryJogador.ListarJogador().ToList().Select(jogador => (JogadorResponse)jogador).ToList();
+            //return _repositoryJogador.ListarJogador().ToList().Select(jogador => (JogadorResponse)jogador).ToList();
+            return _repositoryJogador.Listar().Select(jogador => (JogadorResponse)jogador).ToList();
         }
 
         private bool IsEmail(string email)

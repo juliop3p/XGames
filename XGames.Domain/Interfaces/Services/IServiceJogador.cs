@@ -1,6 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using XGames.Domain.Arguments.Base;
 using XGames.Domain.Arguments.Jogador;
-using XGames.Domain.Entities;
 
 namespace XGames.Domain.Interfaces.Services
 {
@@ -10,5 +10,7 @@ namespace XGames.Domain.Interfaces.Services
         AdicionarJogadorResponse AdicionarJogador(AdicionarJogadorRequest request);
 
         AlterarJogadorResponse AlterarJogador(AlterarJogadorRequest request);
+
+        ResponseBase ExcluirJogador(Guid id);
     }
 }
